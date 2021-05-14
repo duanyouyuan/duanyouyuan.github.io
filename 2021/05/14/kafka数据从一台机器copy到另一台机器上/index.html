@@ -18,22 +18,22 @@
     var CONFIG = {"hostname":"duanyouyuan.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":14,"onmobile":false,"dimmer":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="使用Swagger21、依赖 12345678910&lt;dependency&gt;          &lt;groupId&gt;io.springfox&lt;&#x2F;groupId&gt;          &lt;artifactId&gt;springfox-swagger2&lt;&#x2F;artifactId&gt;          &lt;version&gt;2.9.2&lt;&#x2F;ver">
+  <meta name="description" content="kafka消息转移使用多线程实现从133.0.120.193转移到133.0.189.157利用它的订阅发布实现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swagger2的使用">
-<meta property="og:url" content="https://duanyouyuan.github.io/2021/05/14/Swagger2%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="kafka数据从一台机器copy到另一台机器上">
+<meta property="og:url" content="https://duanyouyuan.github.io/2021/05/14/kafka%E6%95%B0%E6%8D%AE%E4%BB%8E%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8copy%E5%88%B0%E5%8F%A6%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E4%B8%8A/index.html">
 <meta property="og:site_name" content="Kyokyo">
-<meta property="og:description" content="使用Swagger21、依赖 12345678910&lt;dependency&gt;          &lt;groupId&gt;io.springfox&lt;&#x2F;groupId&gt;          &lt;artifactId&gt;springfox-swagger2&lt;&#x2F;artifactId&gt;          &lt;version&gt;2.9.2&lt;&#x2F;ver">
+<meta property="og:description" content="kafka消息转移使用多线程实现从133.0.120.193转移到133.0.189.157利用它的订阅发布实现">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-14T06:57:15.000Z">
-<meta property="article:modified_time" content="2021-05-14T07:19:11.266Z">
+<meta property="article:published_time" content="2021-05-14T08:05:59.000Z">
+<meta property="article:modified_time" content="2021-05-14T08:10:00.055Z">
 <meta property="article:author" content="段友元">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="SpringBoot">
-<meta property="article:tag" content="doc">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="Kafka">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://duanyouyuan.github.io/2021/05/14/Swagger2%E7%9A%84%E4%BD%BF%E7%94%A8/">
+<link rel="canonical" href="https://duanyouyuan.github.io/2021/05/14/kafka%E6%95%B0%E6%8D%AE%E4%BB%8E%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8copy%E5%88%B0%E5%8F%A6%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E4%B8%8A/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Swagger2的使用 | Kyokyo</title>
+  <title>kafka数据从一台机器copy到另一台机器上 | Kyokyo</title>
   
 
 
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://duanyouyuan.github.io/2021/05/14/Swagger2%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://duanyouyuan.github.io/2021/05/14/kafka%E6%95%B0%E6%8D%AE%E4%BB%8E%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8copy%E5%88%B0%E5%8F%A6%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E4%B8%8A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -218,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Swagger2的使用
+          kafka数据从一台机器copy到另一台机器上
         </h1>
 
         <div class="post-meta">
@@ -229,7 +229,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-14 14:57:15 / 修改时间：15:19:11" itemprop="dateCreated datePublished" datetime="2021-05-14T14:57:15+08:00">2021-05-14</time>
+              <time title="创建时间：2021-05-14 16:05:59 / 修改时间：16:10:00" itemprop="dateCreated datePublished" datetime="2021-05-14T16:05:59+08:00">2021-05-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -237,7 +237,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                  <a href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">服务端</span></a>
                 </span>
             </span>
 
@@ -252,14 +252,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="使用Swagger2"><a href="#使用Swagger2" class="headerlink" title="使用Swagger2"></a>使用Swagger2</h4><p>1、依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h4 id="kafka消息转移"><a href="#kafka消息转移" class="headerlink" title="kafka消息转移"></a>kafka消息转移</h4><p>使用多线程实现从133.0.120.193转移到133.0.189.157<br>利用它的订阅发布实现</p>
 <span id="more"></span>
-<p>2、配置</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">docket</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(<span class="string">&quot;com.controller&quot;</span>))</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Contact contact = <span class="keyword">new</span> Contact(<span class="string">&quot;段友元&quot;</span>, <span class="string">&quot;----------&quot;</span>, <span class="string">&quot;17371584524@163.com&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfo(</span><br><span class="line">                <span class="string">&quot;UserApi&quot;</span>, <span class="string">&quot;用户管理接口&quot;</span>, <span class="string">&quot;1.0&quot;</span>, <span class="string">&quot;urn:tos&quot;</span>,</span><br><span class="line">                contact, <span class="string">&quot;Apache 2.0&quot;</span>, <span class="string">&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;</span>, <span class="keyword">new</span> ArrayList&lt;VendorExtension&gt;()</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>3、使用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel(&quot;用户实体类&quot;)</span></span><br><span class="line"><span class="comment">//注解在Entity类上</span></span><br><span class="line"><span class="meta">@ApiModelProperty(&quot;姓名&quot;)</span></span><br><span class="line"><span class="comment">//注解在Entity类字段上</span></span><br><span class="line"><span class="meta">@Api(tags = &quot;用户管理&quot;)</span></span><br><span class="line"><span class="comment">//注解在Controller类上</span></span><br><span class="line"><span class="meta">@ApiOperation(value = &quot;查询全部&quot;)</span></span><br><span class="line"><span class="comment">//注解在Controller类API上</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Object&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Runnable runnablec = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="comment">//配置信息</span></span><br><span class="line">                Properties props = <span class="keyword">new</span> Properties();</span><br><span class="line">                <span class="comment">//kafka服务器地址</span></span><br><span class="line">                props.put(<span class="string">&quot;bootstrap.servers&quot;</span>, <span class="string">&quot;133.0.120.193:9092&quot;</span>);</span><br><span class="line">                <span class="comment">//必须指定消费者组</span></span><br><span class="line">                props.put(<span class="string">&quot;group.id&quot;</span>, <span class="string">&quot;t1&quot;</span>);</span><br><span class="line">                props.setProperty(<span class="string">&quot;auto.offset.reset&quot;</span>, <span class="string">&quot;earliest&quot;</span>);</span><br><span class="line">                <span class="comment">//设置数据key和value的序列化处理类</span></span><br><span class="line">                props.put(<span class="string">&quot;key.deserializer&quot;</span>, StringDeserializer.class);</span><br><span class="line">                props.put(<span class="string">&quot;value.deserializer&quot;</span>, StringDeserializer.class);</span><br><span class="line">                <span class="comment">//创建消息者实例</span></span><br><span class="line">                KafkaConsumer&lt;Object,Object&gt; consumer = <span class="keyword">new</span> KafkaConsumer&lt;&gt;(props);</span><br><span class="line">                <span class="comment">//订阅topic1的消息</span></span><br><span class="line">                consumer.subscribe(Arrays.asList(<span class="string">&quot;eopstat&quot;</span>));</span><br><span class="line">                <span class="comment">//到服务器中读取记录</span></span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">                    ConsumerRecords&lt;Object,Object&gt; records = consumer.poll(Duration.ofMillis(<span class="number">1000</span>));</span><br><span class="line">                    <span class="keyword">for</span>(ConsumerRecord&lt;Object,Object&gt; record : records)&#123;</span><br><span class="line">                        System.out.println( record.key() + <span class="string">&quot;&quot;</span> + <span class="string">&quot;,value:&quot;</span> + record.value());</span><br><span class="line">                        list.add(record.value());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        Runnable runnablep = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                String topicName = <span class="string">&quot;eopstat&quot;</span>;</span><br><span class="line"></span><br><span class="line">                Properties props = <span class="keyword">new</span> Properties();</span><br><span class="line">                props.put(<span class="string">&quot;bootstrap.servers&quot;</span>, <span class="string">&quot;133.0.189.157:9092&quot;</span>);</span><br><span class="line">                props.put(<span class="string">&quot;key.serializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringSerializer&quot;</span>);</span><br><span class="line">                props.put(<span class="string">&quot;value.serializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringSerializer&quot;</span>);</span><br><span class="line">                <span class="comment">/*创建生产者*/</span></span><br><span class="line">                Producer&lt;String, String&gt; producer = <span class="keyword">new</span> KafkaProducer&lt;&gt;(props);</span><br><span class="line">                <span class="keyword">for</span> (Object o : list) &#123;</span><br><span class="line">                    ProducerRecord&lt;String, String&gt; record = <span class="keyword">new</span> ProducerRecord&lt;&gt;(topicName,o.toString());</span><br><span class="line">                    System.err.println(record);</span><br><span class="line">                    producer.send(record);</span><br><span class="line">                    System.out.println(o);</span><br><span class="line">                &#125;</span><br><span class="line">                producer.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        Thread threadc = <span class="keyword">new</span> Thread(runnablec);</span><br><span class="line">        Thread threadp = <span class="keyword">new</span> Thread(runnablep);</span><br><span class="line">        threadc.setPriority(<span class="number">8</span>);</span><br><span class="line">        threadp.setPriority(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        threadc.start();</span><br><span class="line">        threadc.join(<span class="number">10000</span>);</span><br><span class="line">        threadp.start();</span><br><span class="line">        threadp.join(<span class="number">120000</span>);</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -291,7 +286,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://duanyouyuan.github.io/2021/05/14/Swagger2%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Swagger2的使用">https://duanyouyuan.github.io/2021/05/14/Swagger2的使用/</a>
+    <a href="https://duanyouyuan.github.io/2021/05/14/kafka%E6%95%B0%E6%8D%AE%E4%BB%8E%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8copy%E5%88%B0%E5%8F%A6%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E4%B8%8A/" title="kafka数据从一台机器copy到另一台机器上">https://duanyouyuan.github.io/2021/05/14/kafka数据从一台机器copy到另一台机器上/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -303,8 +298,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Java/" rel="tag"># Java</a>
-              <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
-              <a href="/tags/doc/" rel="tag"># doc</a>
+              <a href="/tags/Spring/" rel="tag"># Spring</a>
+              <a href="/tags/Kafka/" rel="tag"># Kafka</a>
           </div>
 
         
@@ -312,10 +307,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/05/14/Java8%E7%9A%84%E7%89%B9%E6%80%A7/" rel="next" title="Java8的特性">
-      Java8的特性 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/05/14/%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E6%8B%B7%E8%B4%9D/" rel="prev" title="对象属性拷贝">
+      <i class="fa fa-chevron-left"></i> 对象属性拷贝
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/14/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="next" title="Lambda表达式">
+      Lambda表达式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -375,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Swagger2"><span class="nav-number">1.</span> <span class="nav-text">使用Swagger2</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#kafka%E6%B6%88%E6%81%AF%E8%BD%AC%E7%A7%BB"><span class="nav-number">1.</span> <span class="nav-text">kafka消息转移</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
