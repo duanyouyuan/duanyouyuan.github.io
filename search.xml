@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CentOS添加软连接</title>
+    <url>/2021/05/14/CentOS%E6%B7%BB%E5%8A%A0%E8%BD%AF%E8%BF%9E%E6%8E%A5/</url>
+    <content><![CDATA[<p>CentOS添加软连接</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ln -s /usr/local/node-v15.0.0-linux-x64/lib/node_modules/elasticdump/bin/elasticdump /usr/bin/elasticdump</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>CentOS删除软连接</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm /usr/bin/elasticdump</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>服务端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+        <tag>CentOS</tag>
+        <tag>软连接</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java8的特性</title>
     <url>/2021/05/14/Java8%E7%9A%84%E7%89%B9%E6%80%A7/</url>
     <content><![CDATA[<h1 id="Java8概述"><a href="#Java8概述" class="headerlink" title="Java8概述"></a>Java8概述</h1><ol>
@@ -103,26 +123,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS添加软连接</title>
-    <url>/2021/05/14/CentOS%E6%B7%BB%E5%8A%A0%E8%BD%AF%E8%BF%9E%E6%8E%A5/</url>
-    <content><![CDATA[<p>CentOS添加软连接</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ln -s /usr/local/node-v15.0.0-linux-x64/lib/node_modules/elasticdump/bin/elasticdump /usr/bin/elasticdump</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>CentOS删除软连接</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm /usr/bin/elasticdump</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>服务端</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-        <tag>CentOS</tag>
-        <tag>软连接</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Lambda表达式</title>
     <url>/2021/05/14/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="Lambda-表达式简介"><a href="#Lambda-表达式简介" class="headerlink" title="Lambda 表达式简介"></a>Lambda 表达式简介</h2><p>Lambda 表达式是一种匿名函数(对 Java 而言这并不完全正确，但现在姑且这么认为)，简单地说，它是没有声明的方法，也即没有访问修饰符、返回值声明和名字。</p>
@@ -164,28 +164,6 @@
       <tags>
         <tag>Java</tag>
         <tag>Lambda表达式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Swagger2的使用</title>
-    <url>/2021/05/14/Swagger2%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h4 id="使用Swagger2"><a href="#使用Swagger2" class="headerlink" title="使用Swagger2"></a>使用Swagger2</h4><p>1、依赖</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>2、配置</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">docket</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(<span class="string">&quot;com.controller&quot;</span>))</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Contact contact = <span class="keyword">new</span> Contact(<span class="string">&quot;段友元&quot;</span>, <span class="string">&quot;----------&quot;</span>, <span class="string">&quot;17371584524@163.com&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfo(</span><br><span class="line">                <span class="string">&quot;UserApi&quot;</span>, <span class="string">&quot;用户管理接口&quot;</span>, <span class="string">&quot;1.0&quot;</span>, <span class="string">&quot;urn:tos&quot;</span>,</span><br><span class="line">                contact, <span class="string">&quot;Apache 2.0&quot;</span>, <span class="string">&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;</span>, <span class="keyword">new</span> ArrayList&lt;VendorExtension&gt;()</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>3、使用</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ApiModel(&quot;用户实体类&quot;)</span></span><br><span class="line"><span class="comment">//注解在Entity类上</span></span><br><span class="line"><span class="meta">@ApiModelProperty(&quot;姓名&quot;)</span></span><br><span class="line"><span class="comment">//注解在Entity类字段上</span></span><br><span class="line"><span class="meta">@Api(tags = &quot;用户管理&quot;)</span></span><br><span class="line"><span class="comment">//注解在Controller类上</span></span><br><span class="line"><span class="meta">@ApiOperation(value = &quot;查询全部&quot;)</span></span><br><span class="line"><span class="comment">//注解在Controller类API上</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>SpringBoot</tag>
-        <tag>doc</tag>
       </tags>
   </entry>
   <entry>
@@ -300,6 +278,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Swagger2的使用</title>
+    <url>/2021/05/14/Swagger2%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h4 id="使用Swagger2"><a href="#使用Swagger2" class="headerlink" title="使用Swagger2"></a>使用Swagger2</h4><p>1、依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>2、配置</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">docket</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(<span class="string">&quot;com.controller&quot;</span>))</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Contact contact = <span class="keyword">new</span> Contact(<span class="string">&quot;段友元&quot;</span>, <span class="string">&quot;----------&quot;</span>, <span class="string">&quot;17371584524@163.com&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfo(</span><br><span class="line">                <span class="string">&quot;UserApi&quot;</span>, <span class="string">&quot;用户管理接口&quot;</span>, <span class="string">&quot;1.0&quot;</span>, <span class="string">&quot;urn:tos&quot;</span>,</span><br><span class="line">                contact, <span class="string">&quot;Apache 2.0&quot;</span>, <span class="string">&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;</span>, <span class="keyword">new</span> ArrayList&lt;VendorExtension&gt;()</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、使用</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ApiModel(&quot;用户实体类&quot;)</span></span><br><span class="line"><span class="comment">//注解在Entity类上</span></span><br><span class="line"><span class="meta">@ApiModelProperty(&quot;姓名&quot;)</span></span><br><span class="line"><span class="comment">//注解在Entity类字段上</span></span><br><span class="line"><span class="meta">@Api(tags = &quot;用户管理&quot;)</span></span><br><span class="line"><span class="comment">//注解在Controller类上</span></span><br><span class="line"><span class="meta">@ApiOperation(value = &quot;查询全部&quot;)</span></span><br><span class="line"><span class="comment">//注解在Controller类API上</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>SpringBoot</tag>
+        <tag>doc</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>kafka数据从一台机器copy到另一台机器上</title>
     <url>/2021/05/14/kafka%E6%95%B0%E6%8D%AE%E4%BB%8E%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8copy%E5%88%B0%E5%8F%A6%E4%B8%80%E5%8F%B0%E6%9C%BA%E5%99%A8%E4%B8%8A/</url>
     <content><![CDATA[<h4 id="kafka消息转移"><a href="#kafka消息转移" class="headerlink" title="kafka消息转移"></a>kafka消息转移</h4><p>使用多线程实现从133.0.120.193转移到133.0.189.157<br>利用它的订阅发布实现</p>
@@ -314,6 +314,43 @@
         <tag>Java</tag>
         <tag>Spring</tag>
         <tag>Kafka</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用Kafka命令</title>
+    <url>/2021/05/14/%E5%B8%B8%E7%94%A8Kafka%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p>1、创建主题</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">./kafka-topics.sh --create --zookeeper 133.0.120.193:2181 --replication-factor 1 --partitions 2 --topic 主题名</span><br></pre></td></tr></table></figure>
+
+<p>2、列出所有主题</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">./kafka-topics.sh --list --zookeeper 192.168.1.200:2181</span><br></pre></td></tr></table></figure>
+
+<p>3、查看主题</p>
+<span id="more"></span>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">./kafka-topics.sh --describe --zookeeper 192.168.1.200:2181 --topic 主题名 </span><br></pre></td></tr></table></figure>
+
+<p>4、增加主题分区</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">./kafka-topics.sh --zookeeper 192.168.1.200:2181 --alter --topic 主题名 --partitions 5 </span><br></pre></td></tr></table></figure>
+
+<p>5、查看主题指定分区 offset 的最大值或最小值。time 为 -1 时表示最大值，为 -2 时表示最小值：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">./kafka-run-class.sh kafka.tools.GetOffsetShell --topic 主题名 --time -1 --broker-list 192.168.1.200:9092 --partitions 0 </span><br></pre></td></tr></table></figure>
+
+<p>6、删除主题</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">./kafka-topics.sh --zookeeper 192.168.1.200:2181 --topic 主题名 --delete</span><br></pre></td></tr></table></figure>
+
+<p>7、控制台生产消息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./kafka-console-producer.sh --broker-list 192.168.1.200:9092 --topic 主题名</span><br></pre></td></tr></table></figure>
+
+<p>8、控制台消费消息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./kafka-console-consumer.sh --bootstrap-server 192.168.1.200:9092 --topic 主题名 --from-beginning</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>服务端</category>
+      </categories>
+      <tags>
+        <tag>Kafka</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -374,43 +411,6 @@
       <tags>
         <tag>websocket</tag>
         <tag>网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用Kafka命令</title>
-    <url>/2021/05/14/%E5%B8%B8%E7%94%A8Kafka%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<p>1、创建主题</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">./kafka-topics.sh --create --zookeeper 133.0.120.193:2181 --replication-factor 1 --partitions 2 --topic 主题名</span><br></pre></td></tr></table></figure>
-
-<p>2、列出所有主题</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">./kafka-topics.sh --list --zookeeper 192.168.1.200:2181</span><br></pre></td></tr></table></figure>
-
-<p>3、查看主题</p>
-<span id="more"></span>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">./kafka-topics.sh --describe --zookeeper 192.168.1.200:2181 --topic 主题名 </span><br></pre></td></tr></table></figure>
-
-<p>4、增加主题分区</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">./kafka-topics.sh --zookeeper 192.168.1.200:2181 --alter --topic 主题名 --partitions 5 </span><br></pre></td></tr></table></figure>
-
-<p>5、查看主题指定分区 offset 的最大值或最小值。time 为 -1 时表示最大值，为 -2 时表示最小值：</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">./kafka-run-class.sh kafka.tools.GetOffsetShell --topic 主题名 --time -1 --broker-list 192.168.1.200:9092 --partitions 0 </span><br></pre></td></tr></table></figure>
-
-<p>6、删除主题</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">./kafka-topics.sh --zookeeper 192.168.1.200:2181 --topic 主题名 --delete</span><br></pre></td></tr></table></figure>
-
-<p>7、控制台生产消息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./kafka-console-producer.sh --broker-list 192.168.1.200:9092 --topic 主题名</span><br></pre></td></tr></table></figure>
-
-<p>8、控制台消费消息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./kafka-console-consumer.sh --bootstrap-server 192.168.1.200:9092 --topic 主题名 --from-beginning</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>服务端</category>
-      </categories>
-      <tags>
-        <tag>Kafka</tag>
-        <tag>shell</tag>
       </tags>
   </entry>
 </search>
