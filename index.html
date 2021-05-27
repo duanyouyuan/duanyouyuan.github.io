@@ -224,7 +224,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-27 11:32:03 / 修改时间：11:33:25" itemprop="dateCreated datePublished" datetime="2021-05-27T11:32:03+08:00">2021-05-27</time>
+              <time title="创建时间：2021-05-27 11:32:03 / 修改时间：11:35:33" itemprop="dateCreated datePublished" datetime="2021-05-27T11:32:03+08:00">2021-05-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -254,99 +254,14 @@
 
 <p>定义行内容器的 flex布局：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#flex-container &#123;</span><br><span class="line">	display: inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对于 safiri浏览器，要加上 webkit 前缀：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#flex-container &#123;</span><br><span class="line">	display: webkit-flex;</span><br><span class="line">	display: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注：CSS的 columns在伸缩容器上没有效果；float、clear和 vertical-align在伸缩项目上没有效果。</p>
-<p><strong>flex-direction</strong></p>
-<p>flex-direction 定义主轴的方向，有4个值，分别代表了 x轴和 y轴的正方向和反方向。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#flex-container &#123;</span><br><span class="line">	flex-direction: row | row-reverse | column | column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>row：主轴为水平轴，方向从左到右，默认值。</li>
-<li>row-reverse：主轴为水平轴，方向从右到左。</li>
-<li>column：主轴为垂直轴，方向从上到下。</li>
-<li>column-reverse：主轴为垂直轴，方向从下到上。</li>
-</ul>
-<p><strong>flex-wrap</strong></p>
-<p>flex-wrap定义 item是否换行显示。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#flex-container &#123;</span><br><span class="line">	flex-wrap: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>nowrap：不换行，默认值。</li>
-<li>wrap：换行，第一行在上方。</li>
-<li>wrap-reverse：换行，第一行在下方。</li>
-</ul>
-<p><strong>flex-flow</strong></p>
-<p>flex-flow是 flex-direction和 flex-wrap的合并，同时定义了主轴方向和换行方式，默认 row nowrap。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#flex-container &#123;</span><br><span class="line">	flex-flow: &lt;&#x27;flex-direction&#x27;&gt; || &lt;&#x27;flex-wrap&#x27;&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>justify-content</strong></p>
-<p>justify-content定义了 item在主轴上的对齐方式，有剩余空间才起作用。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#flex-container &#123;</span><br><span class="line">	justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>flex-start：主轴起始方向对齐，默认。</li>
-<li>flex-end：主轴结束方向对齐。</li>
-<li>center：主轴上居中对齐。</li>
-<li>space-between：主轴上两端对齐，第一个item在起始位置，最后一个在结束位置。</li>
-<li>space-around：主轴上等分间距，两边与容器间距是item间距的一半。</li>
-<li>space-evenly：所有间距相等。</li>
-</ul>
-<p><strong>align-items</strong></p>
-<p>align-items定义了项目在交叉轴上的对齐方式。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#flex-container &#123;</span><br><span class="line">	align-items: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>flex-start：交叉轴上起始方向对齐。</li>
-<li>flex-end：交叉轴上结束方向对齐。</li>
-<li>center：交叉轴上居中对齐。</li>
-<li>baseline： 交叉轴上项目的第一行文字基线对齐。</li>
-<li>stretch：交叉轴上拉伸对齐。</li>
-</ul>
-<p><strong>align-content</strong></p>
-<p>当设置为 wrap或 wrap-reverse，项目换行时会出现多根主轴，此时用 align-content设置平行主轴对齐方式。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#flex-container &#123;</span><br><span class="line">	align-content: flex-start | flex-end | center | space-bewteen | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>flex-start：多条平行的主轴在交叉轴的起始位置对齐。</li>
-<li>flex-end：多条平行的主轴在交叉轴的结束位置对齐。</li>
-<li>center：多条平行的主轴在交叉轴上居中对齐。</li>
-<li>space-between：多条平行的主轴在交叉轴上两端对齐，第一条在交叉轴起始位置，最后一条在交叉轴结束位置。</li>
-<li>space-around：多条平行的主轴在交叉轴上等分间距对齐，第一条和最后一条到两端的间距是间距的一半。</li>
-<li>stretch：多条平行的主轴在交叉轴上拉伸对齐，默认。</li>
-</ul>
-<p><strong>order</strong></p>
-<p>order定义项目在主轴上的排列顺序。数值小的靠前，默认为0.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#flex-item &#123;</span><br><span class="line">	order: -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>flex-grow</strong></p>
-<p>flex-grow定义了项目的放大比例，负值无效。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#flex-item &#123;</span><br><span class="line">	flex-grow: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注：值为0时不分配剩余空间。</p>
-<p><strong>flex-shrink</strong></p>
-<p>flex-shrink定义了缩放比例，默认值auto（项目本来的大小）。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#flex-item &#123;</span><br><span class="line">	flex-shrink: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>flex-basis</strong></p>
-<p>flex-basis定义了在分配多余空间前，项目占据的主轴空间。浏览器根据这个属性计算主轴是否有多余空间。默认auto，即项目本来大小。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#flex-item &#123;</span><br><span class="line">	flex-basis: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>flex</strong></p>
-<p>flex是 flex、flex-shrink、flex-basis的简写形式，默认0，1，auto。</p>
-<p><strong>align-self</strong></p>
-<p>align-self定义了单个 item在交叉轴上的对齐方式。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/27/flex%E5%B8%83%E5%B1%80/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
