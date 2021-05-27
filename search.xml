@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CentOS添加软连接</title>
+    <url>/2021/05/14/CentOS%E6%B7%BB%E5%8A%A0%E8%BD%AF%E8%BF%9E%E6%8E%A5/</url>
+    <content><![CDATA[<p>CentOS添加软连接</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ln -s /usr/local/node-v15.0.0-linux-x64/lib/node_modules/elasticdump/bin/elasticdump /usr/bin/elasticdump</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>CentOS删除软连接</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm /usr/bin/elasticdump</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>服务端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+        <tag>CentOS</tag>
+        <tag>软连接</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java8的特性</title>
     <url>/2021/05/14/Java8%E7%9A%84%E7%89%B9%E6%80%A7/</url>
     <content><![CDATA[<h1 id="Java8概述"><a href="#Java8概述" class="headerlink" title="Java8概述"></a>Java8概述</h1><ol>
@@ -100,26 +120,6 @@
       <tags>
         <tag>Java</tag>
         <tag>SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS添加软连接</title>
-    <url>/2021/05/14/CentOS%E6%B7%BB%E5%8A%A0%E8%BD%AF%E8%BF%9E%E6%8E%A5/</url>
-    <content><![CDATA[<p>CentOS添加软连接</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ln -s /usr/local/node-v15.0.0-linux-x64/lib/node_modules/elasticdump/bin/elasticdump /usr/bin/elasticdump</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>CentOS删除软连接</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm /usr/bin/elasticdump</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>服务端</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
-        <tag>CentOS</tag>
-        <tag>软连接</tag>
       </tags>
   </entry>
   <entry>
